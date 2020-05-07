@@ -1,0 +1,11 @@
+mutation { createCustomer(input: {
+    customer: {
+      firstName:"Dara",
+      lastName: "Nguyen"
+    }
+  })  {
+  customer {
+    firstName
+  }
+  }
+}

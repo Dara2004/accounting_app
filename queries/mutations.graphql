@@ -1,0 +1,73 @@
+mutation CreateCustomer(
+  $name: String!
+  $address: String
+  $phone: String
+  $regionId: Int
+  $dealerId: Int!
+  $note: String
+) {
+  createCustomer(
+    input: {
+      customer: {
+        name: $name
+        address: $address
+        phone: $phone
+        regionId: $regionId
+        dealerId: $dealerId
+        note: $note
+      }
+    }
+  ) {
+    customer {
+      name
+      address
+      phone
+      regionId
+      dealerId
+      note
+    }
+  }
+}
+mutation DeleteCustomer($customerId: Int!) {
+  deleteCustomerByCustomerId(input: { customerId: $customerId }) {
+    customer {
+      customerId
+    }
+  }
+}
+mutation UpdateCustomer(
+  $customerId: Int!
+  $name: String!
+  $address: String
+  $phone: String
+  $regionId: Int
+  $dealerId: Int!
+  $note: String
+) {
+  updateCustomerByCustomerId(
+    input: {
+      customerPatch: {
+        name: $name
+        address: $address
+        phone: $phone
+        regionId: $regionId
+        dealerId: $dealerId
+        note: $note
+      }
+      customerId: $customerId
+    }
+  ) {
+    customer {
+      customerId
+      dealerId
+      dealerByDealerId {
+        name
+      }
+      address
+      name
+      phone
+      note
+      regionId
+    }
+  }
+}

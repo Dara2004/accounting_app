@@ -1,0 +1,4 @@
+SELECT setval('chart_of_accounts_account_id_seq', 1, false);
+ALTER TYPE account_t RENAME VALUE 'equity' TO 'expenses';
+
+ALTER TYPE account_t ADD VALUE 'cost of goods sold' BEFORE 'expense';

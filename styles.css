@@ -1,0 +1,43 @@
+/*
+ * Work around a bug in antd where a <Button type="primary" block href="...">
+ * has blue text on blue background
+ */
+a.ant-btn-primary {
+  color: white;
+}
+a.ant-btn-primary:hover {
+  color: #f0faff;
+}
+
+h1 {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.menu {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.menuBtnNotClicked {
+  margin: 20px !important;
+}
+
+.menuBtnClicked {
+  margin: 20px 20px 15px 20px !important;
+}
+
+.btnBaseClicked {
+  border-bottom: 5px solid #5dcbaf !important;
+}
+
+.ant-picker {
+  display: flex;
+}
+.ant-col {
+  text-align: left !important;
+}
+
+.ant-form-item {
+  margin-bottom: 7px;
+}

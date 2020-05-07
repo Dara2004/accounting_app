@@ -1,0 +1,13 @@
+overwrite: true
+schema: "./accounting_app_schema.graphql"
+documents: "./queries/**/*.graphql"
+config:
+  withHOC: false
+  withComponent: false
+  withHooks: true
+generates:
+  ./generated/generated_graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"

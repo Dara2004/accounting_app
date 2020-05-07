@@ -1,0 +1,71 @@
+query GetDealersAndRegions {
+  allRegions {
+    nodes {
+      regionId
+      name
+    }
+  }
+  allDealers {
+    nodes {
+      dealerId
+      name
+      dealerId
+      address
+      phone
+    }
+  }
+}
+query GetCustomers {
+  allCustomers {
+    nodes {
+      customerId
+      dealerId
+      dealerByDealerId {
+        name
+      }
+      address
+      name
+      phone
+      note
+      regionId
+    }
+  }
+}
+query GetEstimates {
+  allEstimates {
+    nodes {
+      estimateId
+      status
+      customerId
+      # also need to show total amounnt
+    }
+  }
+}
+
+query GetEstimateById {
+  estimateByEstimateId(estimateId: 1) {
+    estimateId
+    date
+    customerByCustomerId {
+      customerId
+      name
+      address
+      regionByRegionId {
+        regionId
+        name
+        shippingAmount
+      }
+    }
+    estimateProductsByEstimateId {
+      nodes {
+        productByProductId {
+          productId
+          name
+          productPrice
+        }
+        estimatePrice
+        quantity
+      }
+    }
+  }
+}

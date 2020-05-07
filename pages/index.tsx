@@ -1,14 +1,42 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { useQuery } from "@apollo/react-hooks";
+import { GetCustomers } from "../queries/queries";
+import { Form, Input, InputNumber, Button, Select, Radio } from "antd";
 
-export default function Home() {
+const HomePage = () => {
+  const onFinish = (values) => {
+    console.log(values);
+  };
+
   return (
     <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
+        <Form onFinish={onFinish}>
+          <Form.Item
+            name={["user", "name"]}
+            label="Name"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item name={["user", "note"]} label="Note">
+            <Input.TextArea />
+          </Form.Item>
+
+          <Form.Item name={["user", "radio-group"]} label="Shipping">
+            <Radio.Group>
+              <Radio value="a">Paid by customer</Radio>
+              <Radio value="b">Paid by company</Radio>
+              <Input style={{ marginTop: 5 }} />
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -200,5 +228,7 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
+
+export default HomePage;
